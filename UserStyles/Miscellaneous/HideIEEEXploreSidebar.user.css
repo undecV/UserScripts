@@ -1,0 +1,19 @@
+/* ==UserStyle==
+@name           Hide IEEE Xplore Sidebar
+@namespace      github.com/openstyles/stylus
+@version        1.0.0
+@description    Hide IEEE Xplore Sidebar
+@author         undecV (https://github.com/undecV)
+@homepageURL    https://github.com/undecV
+==/UserStyle== */
+
+@-moz-document url-prefix("https://ieeexplore.ieee.org/abstract/document/"), url-prefix("https://ieeexplore.ieee.org/document/") {
+    .document-sidebar {
+        display: None !important;
+    }
+
+    .document-main {
+        width: 100% !important;
+        flex: 0 0 100% !important;
+    }
+}
