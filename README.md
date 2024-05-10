@@ -7,6 +7,7 @@ English | [正體中文](./README.zh-TW.md)
 ## UserScripts
 
 - Export EasyCard Transaction History to CSV: [Install 🔱 UserScript][EasyCardCSV.user.js]
+- Export Taiwan E-Invoice Transaction History to CSV: [Install 🔱 UserScript][EInvoiceCSV.user.js]
 
 ## UserStyles
 
@@ -14,6 +15,7 @@ English | [正體中文](./README.zh-TW.md)
 - Hide IEEE Xplore Sidebar：[Install 🎨 UserStyle][HideIEEEXploreSidebar.user.css]
 
 [EasyCardCSV.user.js]: https://raw.githubusercontent.com/undecV/UserScripts/main/UserScripts/EasyCardCSV/EasyCardCSV.user.js
+[EInvoiceCSV.user.js]: https://raw.githubusercontent.com/undecV/UserScripts/main/UserScripts/EInvoiceCSV/EInvoiceCSV.user.js
 [Anime1Theater.user.css]: https://raw.githubusercontent.com/undecV/UserScripts/main/UserStyles/Anime1Theater/Anime1Theater.user.css
 [HideIEEEXploreSidebar.user.css]: https://raw.githubusercontent.com/undecV/UserScripts/main/UserStyles/Miscellaneous/HideIEEEXploreSidebar.user.css
 
