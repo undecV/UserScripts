@@ -6,15 +6,17 @@ English | [正體中文](./README.zh-TW.md)
 
 ## UserScripts
 
-- Export EasyCard Transaction History to CSV: [Install 🔱 UserScript][EasyCardCSV.user.js]
-- Export Taiwan E-Invoice Transaction History to CSV: [Install 🔱 UserScript][EInvoiceCSV.user.js]
+- Export EasyCard Transaction History to CSV: [Introduction][EasyCardCSV] (zh-TW only), [Install 🔱 UserScript][EasyCardCSV.user.js]
+- Export Taiwan E-Invoice Transaction History to CSV: [Introduction][EInvoiceCSV] (zh-TW only), [Install 🔱 UserScript][EInvoiceCSV.user.js]
 
 ## UserStyles
 
 - Anime1.me Theater Mode：[Install 🎨 UserStyle][Anime1Theater.user.css]
 - Hide IEEE Xplore Sidebar：[Install 🎨 UserStyle][HideIEEEXploreSidebar.user.css]
 
+[EasyCardCSV]: ./UserScripts/EasyCardCSV/
 [EasyCardCSV.user.js]: https://raw.githubusercontent.com/undecV/UserScripts/main/UserScripts/EasyCardCSV/EasyCardCSV.user.js
+[EInvoiceCSV]: ./UserScripts/EInvoiceCSV/
 [EInvoiceCSV.user.js]: https://raw.githubusercontent.com/undecV/UserScripts/main/UserScripts/EInvoiceCSV/EInvoiceCSV.user.js
 [Anime1Theater.user.css]: https://raw.githubusercontent.com/undecV/UserScripts/main/UserStyles/Anime1Theater/Anime1Theater.user.css
 [HideIEEEXploreSidebar.user.css]: https://raw.githubusercontent.com/undecV/UserScripts/main/UserStyles/Miscellaneous/HideIEEEXploreSidebar.user.css

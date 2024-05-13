@@ -6,15 +6,17 @@
 
 ## UserScripts
 
-- 將悠遊卡交易歷史記錄匯出為 CSV：[安裝 🔱 UserScript][EasyCardCSV.user.js]
-- 將台灣電子發票交易記錄匯出為 CSV：[安裝 🔱 UserScript][EInvoiceCSV.user.js]
+- 將悠遊卡交易歷史記錄匯出為 CSV：[介紹][EasyCardCSV]，[安裝 🔱 UserScript][EasyCardCSV.user.js]
+- 將台灣電子發票交易記錄匯出為 CSV：[介紹][EInvoiceCSV]，[安裝 🔱 UserScript][EInvoiceCSV.user.js]
 
 ## UserStyles
 
 - Anime1.me 劇院模式：[安裝 🎨 UserStyle][Anime1Theater.user.css]
 - 隱藏 IEEE Xplore 側邊欄：[安裝 🎨 UserStyle][HideIEEEXploreSidebar.user.css]
 
+[EasyCardCSV]: ./UserScripts/EasyCardCSV/
 [EasyCardCSV.user.js]: https://raw.githubusercontent.com/undecV/UserScripts/main/UserScripts/EasyCardCSV/EasyCardCSV.user.js
+[EInvoiceCSV]: ./UserScripts/EInvoiceCSV/
 [EInvoiceCSV.user.js]: https://raw.githubusercontent.com/undecV/UserScripts/main/UserScripts/EInvoiceCSV/EInvoiceCSV.user.js
 [Anime1Theater.user.css]: https://raw.githubusercontent.com/undecV/UserScripts/main/UserStyles/Anime1Theater/Anime1Theater.user.css
 [HideIEEEXploreSidebar.user.css]: https://raw.githubusercontent.com/undecV/UserScripts/main/UserStyles/Miscellaneous/HideIEEEXploreSidebar.user.css
