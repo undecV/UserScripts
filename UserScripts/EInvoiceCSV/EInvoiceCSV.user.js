@@ -4,9 +4,9 @@
 // @description  Convert and download Taiwan E-Invoice table to CSV format
 // @namespace    Violentmonkey Scripts
 // @author       undecV (https://github.com/undecV)
-// @homepageURL  https://github.com/undecV
+// @homepageURL  https://github.com/undecV/UserScripts/tree/main/UserScripts/EInvoiceCSV
 // @icon         https://www.einvoice.nat.gov.tw/favicon.ico
-// @version      1.0
+// @version      1.1
 // @author       undecV
 // @match        https://www.einvoice.nat.gov.tw/portal/btc/mobile*
 // @grant        none

@@ -2,11 +2,11 @@
 // @name         Export EasyCard Transaction History to CSV
 // @name:zh-TW   將悠遊卡交易歷史記錄匯出為 CSV
 // @namespace    http://tampermonkey.net/
-// @version      2.0
+// @version      2.1
 // @description  Export EasyCard transaction history tables to CSV format and download it.
 // @author       undecV (https://github.com/undecV)
 // @contributor  ChatGPT4 (https://chat.openai.com/)
-// @homepageURL  https://github.com/undecV
+// @homepageURL  https://github.com/undecV/UserScripts/tree/main/UserScripts/EasyCardCSV
 // @icon         https://ezweb.easycard.com.tw/search/images2/favicon.ico
 // @match        https://ezweb.easycard.com.tw/search/CardSearch.php*
 // @grant        none
