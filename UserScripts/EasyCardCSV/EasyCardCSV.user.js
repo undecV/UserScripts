@@ -2,7 +2,7 @@
 // @name         Export EasyCard Transaction History to CSV
 // @name:zh-TW   將悠遊卡交易歷史記錄匯出為 CSV
 // @namespace    http://tampermonkey.net/
-// @version      1.0
+// @version      2.0
 // @description  Export EasyCard transaction history tables to CSV format and download it.
 // @author       undecV (https://github.com/undecV)
 // @contributor  ChatGPT4 (https://chat.openai.com/)
@@ -12,11 +12,47 @@
 // @grant        none
 // ==/UserScript==
 
-(function() {
+window.addEventListener('load', function() {
     'use strict';
 
+    function injectUI() {
+        // const convertButton = document.createElement('button');
+        // convertButton.textContent = '轉換';
+        // convertButton.className = "button_style blue_btn";
+        // convertButton.style.float = "right";
+        // convertButton.addEventListener("click", onConvertButtonClick)
+
+        const downloadButton = document.createElement('button');
+        downloadButton.textContent = '下載';
+        downloadButton.style.float = "right";
+        downloadButton.addEventListener("click", onDownloadButtonClick)
+
+        const textarea = document.createElement('textarea');
+        textarea.id = "easyCardCsvTextarea";
+        textarea.style.width = '100%';
+        textarea.style.height = '200px';
+
+        const easyCardCsvUiDiv = document.createElement('div');
+        const easyCardCsvUiButtonsBoxDiv = document.createElement('div');
+        easyCardCsvUiButtonsBoxDiv.style.display = "flex";
+        easyCardCsvUiButtonsBoxDiv.style.width = "100%";
+        const easyCardCsvUiButtonsDiv = document.createElement('div');
+        easyCardCsvUiButtonsDiv.style.width = "100%";
+        
+        easyCardCsvUiDiv.appendChild(textarea);
+        easyCardCsvUiDiv.appendChild(easyCardCsvUiButtonsBoxDiv);
+        easyCardCsvUiButtonsBoxDiv.appendChild(document.createElement("div"));
+        easyCardCsvUiButtonsBoxDiv.appendChild(easyCardCsvUiButtonsDiv);
+        // easyCardCsvUiButtonsDiv.appendChild(convertButton);
+        easyCardCsvUiButtonsDiv.appendChild(downloadButton);
+    
+        const dstDiv = document.querySelector("p.csp008");
+        
+        dstDiv.parentNode.insertBefore(easyCardCsvUiDiv, dstDiv.nextSibling);
+    }
+
     // Function to convert table data to CSV
-    function tableToCSV() {
+    function ConvertCSV() {
         const tables = document.querySelectorAll('.tbl_product');
         let csv = [];
         tables.forEach((table) => {
@@ -31,21 +67,10 @@
         return csv.join('\n');
     }
 
-    // Create a textarea to display the CSV
-    const textarea = document.createElement('textarea');
-    textarea.style.width = '100%';
-    textarea.style.height = '200px';
-    document.body.insertBefore(textarea, document.body.firstChild);
-
-    // Create a download button
-    const button = document.createElement('button');
-    button.textContent = 'Download CSV';
-    document.body.insertBefore(button, textarea.nextSibling);
-
     // Add a click event to the button for downloading the CSV
-    button.addEventListener('click', function() {
-        const csv = tableToCSV();
-        const blob = new Blob([csv], {type: 'text/csv;charset=utf-8;'});
+    function onDownloadButtonClick() {
+        const csvText = ConvertCSV();
+        const blob = new Blob([csvText], {type: 'text/csv;charset=utf-8;'});
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url;
@@ -54,8 +79,20 @@
         a.click();
         document.body.removeChild(a);
         URL.revokeObjectURL(url);
-    });
+    }
 
-    // Display CSV in textarea
-    textarea.value = tableToCSV();
-})();
+    // Lazy load from https://stackoverflow.com/a/47406751
+    (new MutationObserver(check)).observe(document, {childList: true, subtree: true});
+
+    function check(changes, observer) {
+        if(document.querySelector('.tbl_product')) {
+            observer.disconnect();
+            // actions to perform after #mySelector is found
+            injectUI();
+            const csvText = ConvertCSV();
+            const textarea = document.getElementById("easyCardCsvTextarea");
+            textarea.textContent = csvText;
+        }
+    }
+
+}, false);
