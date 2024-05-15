@@ -1,0 +1,30 @@
+/* ==UserStyle==
+@name           Dark OneTab
+@namespace      github.com/openstyles/stylus
+@version        1.0.0
+@description    Dark Theme for OneTab it works in `userContent.css`.
+@author         undecV
+==/UserStyle== */
+
+@-moz-document url-prefix("moz-extension://b07bf10e-02bf-4884-a85d-c92c55bb65db/") {
+html, body {
+background: #2d2d2d !important;
+color: #cccccc !important;
+}
+
+div#settingsDiv {
+background: #393939 !important;
+}
+
+.clickable {
+color: #6699cc !important;
+}
+
+.clickable:hover {
+color: #66cccc !important;
+}
+}
+
+/* Minify
+@-moz-document url-prefix("moz-extension://b07bf10e-02bf-4884-a85d-c92c55bb65db/"){html,body{background:#2d2d2d!important;color:#ccc!important}div#settingsDiv{background:#393939!important}.clickable{color:#69c!important}.clickable:hover{color:#6cc!important}}
+*/
