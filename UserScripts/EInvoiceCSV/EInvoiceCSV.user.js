@@ -6,13 +6,13 @@
 // @author       undecV (https://github.com/undecV)
 // @homepageURL  https://github.com/undecV/UserScripts/tree/main/UserScripts/EInvoiceCSV
 // @icon         https://www.einvoice.nat.gov.tw/favicon.ico
-// @version      1.1
+// @version      1.2
 // @author       undecV
 // @match        https://www.einvoice.nat.gov.tw/portal/btc/mobile*
 // @grant        none
 // ==/UserScript==
 
-window.addEventListener('load', function() {
+window.addEventListener('load', function () {
     'use strict';
 
     function injectUI() {
@@ -39,14 +39,14 @@ window.addEventListener('load', function() {
         eInvoiceCsvUiButtonsBoxDiv.style.width = "100%";
         const eInvoiceCsvUiButtonsDiv = document.createElement('div');
         eInvoiceCsvUiButtonsDiv.style.width = "100%";
-        
+
         eInvoiceCsvUiDiv.appendChild(textarea);
         eInvoiceCsvUiDiv.appendChild(eInvoiceCsvUiButtonsBoxDiv);
         eInvoiceCsvUiButtonsBoxDiv.appendChild(document.createElement("div"));
         eInvoiceCsvUiButtonsBoxDiv.appendChild(eInvoiceCsvUiButtonsDiv);
         eInvoiceCsvUiButtonsDiv.appendChild(convertButton);
         eInvoiceCsvUiButtonsDiv.appendChild(downloadButton);
-    
+
         const dstDiv = document.querySelector(".subject_box .container");
         dstDiv.prepend(eInvoiceCsvUiDiv);
     }
@@ -59,7 +59,7 @@ window.addEventListener('load', function() {
 
     function onDownloadButtonClick() {
         const csvText = ConvertCSV();
-        const blob = new Blob([csvText], {type: 'text/csv;charset=utf-8;'});
+        const blob = new Blob([csvText], { type: 'text/csv;charset=utf-8;' });
         const url = URL.createObjectURL(blob);
         const a = document.createElement("a");
         a.href = url;
@@ -87,10 +87,12 @@ window.addEventListener('load', function() {
 
         for (let i = 0; i < rows.length; i += 2) {
             const row1 = rows[i];
-            const row2 = rows[i+1];
+            const row2 = rows[i + 1];
+            const invoiceNumberDiv = row1.querySelector('td[data-title="發票號碼"]')
+            const invoiceNumber = invoiceNumberDiv.querySelector('a') ? invoiceNumberDiv.querySelector('a').textContent.trim() : invoiceNumberDiv.childNodes[1].textContent.trim();
             let csvRow = [
                 formatCSVCell(row1.querySelector('td[data-title="載具自訂名稱"]').textContent.trim()),
-                formatCSVCell(row1.querySelector('td[data-title="發票號碼"] > a[title]').textContent.trim()),
+                formatCSVCell(invoiceNumber),
                 formatCSVCell(row1.querySelector('td[data-title="發票金額"]').textContent.trim()),
                 formatCSVCell(row1.querySelector('td[data-title="發票日期"]').textContent.trim()),
                 formatCSVCell(row1.querySelector('td[date-title="捐贈日期"]').textContent.trim()),
@@ -104,14 +106,14 @@ window.addEventListener('load', function() {
     }
 
     // Lazy load from https://stackoverflow.com/a/47406751
-    (new MutationObserver(check)).observe(document, {childList: true, subtree: true});
+    (new MutationObserver(check)).observe(document, { childList: true, subtree: true });
 
     function check(changes, observer) {
-        if(document.querySelector('.subject_box .container')) {
+        if (document.querySelector('.subject_box .container')) {
             observer.disconnect();
             // actions to perform after #mySelector is found
             injectUI();
         }
     }
-    
+
 }, false);

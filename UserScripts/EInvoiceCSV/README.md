@@ -20,3 +20,9 @@
 若需要轉換更多內容，請 修改每頁顯示筆數 或 換頁。
 
 [EInvoiceCSV.user.js]: https://raw.githubusercontent.com/undecV/UserScripts/main/UserScripts/EInvoiceCSV/EInvoiceCSV.user.js
+
+## Version History
+
+### 1.2
+
+- 修正存在 已作廢發票 無法轉換的問題。
